@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 :root {
   /* Notion-inspired green primary palette */
@@ -22,7 +23,7 @@
   --color-selection-bg: rgba(34, 197, 94, 0.28);
   --color-selection-text: #e5f7ff;
 
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui,
+  font-family: "Pretendard", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
     -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.5;
   font-weight: 400;
