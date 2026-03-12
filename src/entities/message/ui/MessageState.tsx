@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from "react";
-import type { MessageStatus } from "@/entities/message/model/types";
+import type { MessageStatus } from "../model/types";
 import { StreamingMessage } from "./StreamingMessage";
 
 type MessageStateProps = PropsWithChildren<{

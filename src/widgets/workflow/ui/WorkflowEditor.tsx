@@ -1,4 +1,4 @@
-import type { WorkflowItem } from "@/widgets/workflow/model/types";
+import type { WorkflowItem } from "../model/types";
 
 type WorkflowEditorProps = {
   workflow: WorkflowItem | null;

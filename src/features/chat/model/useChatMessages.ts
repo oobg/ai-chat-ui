@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import type { Message } from "@/entities/message/model/types";
+import type { Message } from "@/entities/message";
 
 function createId() {
   return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;

@@ -1,4 +1,4 @@
-import type { CommandItem } from "@/widgets/commands/model/types";
+import type { CommandItem } from "../model/types";
 import { CommandCard } from "./CommandCard";
 
 type CommandListProps = {

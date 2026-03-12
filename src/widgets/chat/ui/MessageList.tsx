@@ -1,5 +1,5 @@
 import type { RefObject } from "react";
-import type { Message } from "@/entities/message/model/types";
+import type { Message } from "@/entities/message";
 import { MessageBubble } from "./MessageBubble";
 
 type MessageListProps = {

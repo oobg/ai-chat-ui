@@ -1,4 +1,4 @@
-import type { ScheduleFormState } from "@/widgets/scheduling/model/types";
+import type { ScheduleFormState } from "../model/types";
 
 type ScheduleSummaryProps = {
   schedule: ScheduleFormState;

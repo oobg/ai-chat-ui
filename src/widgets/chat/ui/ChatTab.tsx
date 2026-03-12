@@ -1,5 +1,5 @@
 import { useCallback, useRef } from "react";
-import { useChatMessages } from "@/features/chat/model/useChatMessages";
+import { useChatMessages } from "@/features/chat";
 import { MessageList } from "./MessageList";
 import { ChatInput } from "./ChatInput";
 import { SendButton } from "./SendButton";

@@ -1,15 +1,15 @@
 import { Activity } from "react";
-import type { TabId } from "@/shared/types/tabs";
-import { ChatTab } from "@/widgets/chat/ui/ChatTab";
-import { SchedulingTab } from "@/widgets/scheduling/ui/SchedulingTab";
-import { ContextReplyTab } from "@/widgets/context-reply/ui/ContextReplyTab";
-import { PromptLibraryTab } from "@/widgets/prompt-library/ui/PromptLibraryTab";
-import { DocumentsTab } from "@/widgets/documents/ui/DocumentsTab";
-import { CommandsTab } from "@/widgets/commands/ui/CommandsTab";
-import { WorkflowTab } from "@/widgets/workflow/ui/WorkflowTab";
-import { PlaygroundTab } from "@/widgets/playground/ui/PlaygroundTab";
-import { ActivityTab } from "@/widgets/activity/ui/ActivityTab";
-import { SettingsTab } from "@/widgets/settings/ui/SettingsTab";
+import type { TabId } from "@/shared";
+import { ChatTab } from "@/widgets/chat";
+import { SchedulingTab } from "@/widgets/scheduling";
+import { ContextReplyTab } from "@/widgets/context-reply";
+import { PromptLibraryTab } from "@/widgets/prompt-library";
+import { DocumentsTab } from "@/widgets/documents";
+import { CommandsTab } from "@/widgets/commands";
+import { WorkflowTab } from "@/widgets/workflow";
+import { PlaygroundTab } from "@/widgets/playground";
+import { ActivityTab } from "@/widgets/activity";
+import { SettingsTab } from "@/widgets/settings";
 
 type MainPanelProps = {
   activeTab: TabId;

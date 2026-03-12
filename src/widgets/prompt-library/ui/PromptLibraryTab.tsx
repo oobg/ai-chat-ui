@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import type { PromptItem } from "@/widgets/prompt-library/model/types";
+import type { PromptItem } from "../model/types";
 import { PromptList } from "./PromptList";
 import { PromptSearch } from "./PromptSearch";
 import { PromptEditor } from "./PromptEditor";

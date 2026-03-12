@@ -1,4 +1,4 @@
-import type { TabId } from "@/shared/types/tabs";
+import type { TabId } from "@/shared";
 
 const iconClass = "h-5 w-5 shrink-0";
 

@@ -1,4 +1,4 @@
-import type { PromptItem } from "@/widgets/prompt-library/model/types";
+import type { PromptItem } from "../model/types";
 
 type PromptCardProps = {
   prompt: PromptItem;

@@ -1,4 +1,4 @@
-import type { ActivityType } from "@/widgets/activity/model/types";
+import type { ActivityType } from "../model/types";
 
 const TYPES: { value: ActivityType | "all"; label: string }[] = [
   { value: "all", label: "전체" },
