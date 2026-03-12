@@ -4,11 +4,7 @@ type AIActionButtonsProps = {
   onTranslate?: () => void;
 };
 
-export function AIActionButtons({
-  onSummarize,
-  onExplain,
-  onTranslate,
-}: AIActionButtonsProps) {
+export function AIActionButtons({ onSummarize, onExplain, onTranslate }: AIActionButtonsProps) {
   return (
     <div className="flex flex-wrap gap-2">
       <button

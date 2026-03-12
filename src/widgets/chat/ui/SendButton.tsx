@@ -4,11 +4,7 @@ type SendButtonProps = {
   children?: React.ReactNode;
 };
 
-export function SendButton({
-  disabled = false,
-  onClick,
-  children = "보내기",
-}: SendButtonProps) {
+export function SendButton({ disabled = false, onClick, children = "보내기" }: SendButtonProps) {
   return (
     <button
       type="submit"

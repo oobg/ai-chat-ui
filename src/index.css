@@ -22,8 +22,16 @@
   --color-selection-bg: rgba(34, 197, 94, 0.28);
   --color-selection-text: #e5f7ff;
 
-  font-family: "Pretendard", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    "Pretendard",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Text",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: dark;

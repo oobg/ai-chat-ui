@@ -4,10 +4,30 @@ import { CommandList } from "./CommandList";
 import { CommandSearch } from "./CommandSearch";
 
 const MOCK_COMMANDS: CommandItem[] = [
-  { id: "1", command: "/summarize", description: "선택한 내용을 요약합니다.", example: "채팅에 삽입 가능" },
-  { id: "2", command: "/translate", description: "선택한 내용을 번역합니다.", example: "채팅에 삽입 가능" },
-  { id: "3", command: "/explain", description: "선택한 내용을 설명합니다.", example: "채팅에 삽입 가능" },
-  { id: "4", command: "/schedule", description: "일정 생성 프롬프트를 삽입합니다.", example: "채팅에 삽입 가능" },
+  {
+    id: "1",
+    command: "/summarize",
+    description: "선택한 내용을 요약합니다.",
+    example: "채팅에 삽입 가능",
+  },
+  {
+    id: "2",
+    command: "/translate",
+    description: "선택한 내용을 번역합니다.",
+    example: "채팅에 삽입 가능",
+  },
+  {
+    id: "3",
+    command: "/explain",
+    description: "선택한 내용을 설명합니다.",
+    example: "채팅에 삽입 가능",
+  },
+  {
+    id: "4",
+    command: "/schedule",
+    description: "일정 생성 프롬프트를 삽입합니다.",
+    example: "채팅에 삽입 가능",
+  },
 ];
 
 export function CommandsTab() {
@@ -17,9 +37,7 @@ export function CommandsTab() {
     if (!search.trim()) return MOCK_COMMANDS;
     const q = search.toLowerCase();
     return MOCK_COMMANDS.filter(
-      (c) =>
-        c.command.toLowerCase().includes(q) ||
-        c.description.toLowerCase().includes(q),
+      (c) => c.command.toLowerCase().includes(q) || c.description.toLowerCase().includes(q),
     );
   }, [search]);
 

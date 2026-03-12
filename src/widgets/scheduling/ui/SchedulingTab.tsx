@@ -22,15 +22,9 @@ export function SchedulingTab() {
     <div className="mx-auto max-w-2xl space-y-6">
       <div className="rounded-2xl border border-slate-800/80 bg-slate-900/50 p-6">
         <h2 className="mb-4 text-lg font-semibold text-slate-100">일정 생성</h2>
-        <ScheduleForm
-          value={schedule}
-          onChange={setSchedule}
-          onSubmit={handleSubmit}
-        />
+        <ScheduleForm value={schedule} onChange={setSchedule} onSubmit={handleSubmit} />
       </div>
-      {submitted && (
-        <ScheduleSummary schedule={submitted} />
-      )}
+      {submitted && <ScheduleSummary schedule={submitted} />}
     </div>
   );
 }

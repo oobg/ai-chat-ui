@@ -5,10 +5,35 @@ import { ActivityDetail } from "./ActivityDetail";
 import { ActivityFilter } from "./ActivityFilter";
 
 const MOCK_ACTIVITIES: ActivityRecord[] = [
-  { id: "1", type: "workflow", title: "요약 후 이메일 작성", timestamp: "2025-03-12 10:00", status: "success", description: "워크플로우 실행 완료" },
-  { id: "2", type: "agent", title: "문서 분석 에이전트", timestamp: "2025-03-12 09:45", status: "success" },
-  { id: "3", type: "chat", title: "채팅 요청 처리", timestamp: "2025-03-12 09:30", status: "success" },
-  { id: "4", type: "command", title: "/summarize 실행", timestamp: "2025-03-12 09:15", status: "success" },
+  {
+    id: "1",
+    type: "workflow",
+    title: "요약 후 이메일 작성",
+    timestamp: "2025-03-12 10:00",
+    status: "success",
+    description: "워크플로우 실행 완료",
+  },
+  {
+    id: "2",
+    type: "agent",
+    title: "문서 분석 에이전트",
+    timestamp: "2025-03-12 09:45",
+    status: "success",
+  },
+  {
+    id: "3",
+    type: "chat",
+    title: "채팅 요청 처리",
+    timestamp: "2025-03-12 09:30",
+    status: "success",
+  },
+  {
+    id: "4",
+    type: "command",
+    title: "/summarize 실행",
+    timestamp: "2025-03-12 09:15",
+    status: "success",
+  },
 ];
 
 export function ActivityTab() {

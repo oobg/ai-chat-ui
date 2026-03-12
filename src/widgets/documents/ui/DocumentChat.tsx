@@ -11,9 +11,7 @@ export function DocumentChat({ documentId }: DocumentChatProps) {
 
   return (
     <div className="mt-4 space-y-2">
-      <label className="block text-sm font-medium text-slate-400">
-        이 문서에 대해 질문하기
-      </label>
+      <label className="block text-sm font-medium text-slate-400">이 문서에 대해 질문하기</label>
       <textarea
         value={question}
         onChange={(e) => setQuestion(e.target.value)}

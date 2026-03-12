@@ -31,9 +31,7 @@ export function WorkflowRunner({ workflow }: WorkflowRunnerProps) {
       >
         {running ? "실행 중..." : "실행"}
       </button>
-      {result && (
-        <p className="mt-2 text-sm text-slate-400">{result}</p>
-      )}
+      {result && <p className="mt-2 text-sm text-slate-400">{result}</p>}
     </div>
   );
 }

@@ -7,9 +7,7 @@ type ScheduleSummaryProps = {
 export function ScheduleSummary({ schedule }: ScheduleSummaryProps) {
   return (
     <div className="rounded-xl border border-slate-700/80 bg-slate-900/60 p-4">
-      <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
-        요약
-      </h3>
+      <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">요약</h3>
       <dl className="space-y-2 text-sm">
         <div>
           <dt className="text-slate-500">제목</dt>

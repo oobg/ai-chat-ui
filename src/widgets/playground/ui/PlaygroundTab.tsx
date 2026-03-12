@@ -16,7 +16,9 @@ export function PlaygroundTab() {
     setResult(null);
     setTimeout(() => {
       setLoading(false);
-      setResult(`[모델: ${model}, temperature: ${temperature}]\n\n"${prompt}"\n\n→ 데모 모드: 위 설정으로 실행된 결과가 여기에 표시됩니다.`);
+      setResult(
+        `[모델: ${model}, temperature: ${temperature}]\n\n"${prompt}"\n\n→ 데모 모드: 위 설정으로 실행된 결과가 여기에 표시됩니다.`,
+      );
     }, 600);
   };
 
@@ -27,9 +29,7 @@ export function PlaygroundTab() {
         <div className="grid gap-6 md:grid-cols-3">
           <div className="md:col-span-2 space-y-4">
             <div>
-              <label className="mb-2 block text-sm font-medium text-slate-400">
-                프롬프트
-              </label>
+              <label className="mb-2 block text-sm font-medium text-slate-400">프롬프트</label>
               <PromptEditor value={prompt} onChange={setPrompt} />
             </div>
             <div className="flex gap-4">
@@ -38,10 +38,7 @@ export function PlaygroundTab() {
                 <ModelSelector value={model} onChange={setModel} />
               </div>
               <div className="flex-1">
-                <ParameterPanel
-                  temperature={temperature}
-                  onTemperatureChange={setTemperature}
-                />
+                <ParameterPanel temperature={temperature} onTemperatureChange={setTemperature} />
               </div>
             </div>
             <button
@@ -53,9 +50,7 @@ export function PlaygroundTab() {
             </button>
           </div>
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-400">
-              결과
-            </label>
+            <label className="mb-2 block text-sm font-medium text-slate-400">결과</label>
             <ResultViewer result={result} loading={loading} />
           </div>
         </div>

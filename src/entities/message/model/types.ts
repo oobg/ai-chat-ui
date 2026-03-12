@@ -1,7 +1,4 @@
-export type MessageStatus =
-  | "completed_unread"
-  | "in_progress"
-  | "completed_read";
+export type MessageStatus = "completed_unread" | "in_progress" | "completed_read";
 
 export type MessageRole = "user" | "assistant";
 

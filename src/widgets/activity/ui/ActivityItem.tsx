@@ -23,7 +23,9 @@ export function ActivityItem({ activity, onSelect }: ActivityItemProps) {
         <span className="text-sm font-medium text-slate-200">{activity.title}</span>
         <span className={`text-xs ${statusColor}`}>{activity.status}</span>
       </div>
-      <p className="mt-1 text-xs text-slate-500">{activity.type} · {activity.timestamp}</p>
+      <p className="mt-1 text-xs text-slate-500">
+        {activity.type} · {activity.timestamp}
+      </p>
     </button>
   );
 }

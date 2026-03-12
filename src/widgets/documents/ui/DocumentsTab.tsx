@@ -33,11 +33,7 @@ export function DocumentsTab() {
         <div className="grid gap-6 md:grid-cols-3">
           <div>
             <h3 className="mb-3 text-sm font-medium text-slate-400">문서 목록</h3>
-            <DocumentList
-              documents={documents}
-              selectedId={selected?.id}
-              onSelect={setSelected}
-            />
+            <DocumentList documents={documents} selectedId={selected?.id} onSelect={setSelected} />
           </div>
           <div className="md:col-span-2">
             <h3 className="mb-3 text-sm font-medium text-slate-400">미리보기</h3>

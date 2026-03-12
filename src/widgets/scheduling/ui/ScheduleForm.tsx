@@ -32,22 +32,22 @@ export function ScheduleForm({ value, onChange, onSubmit }: ScheduleFormProps) {
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label htmlFor="schedule-date" className="mb-1.5 block text-sm font-medium text-slate-400">
+          <label
+            htmlFor="schedule-date"
+            className="mb-1.5 block text-sm font-medium text-slate-400"
+          >
             날짜
           </label>
-          <DatePicker
-            value={value.date}
-            onChange={(date) => onChange({ ...value, date })}
-          />
+          <DatePicker value={value.date} onChange={(date) => onChange({ ...value, date })} />
         </div>
         <div>
-          <label htmlFor="schedule-time" className="mb-1.5 block text-sm font-medium text-slate-400">
+          <label
+            htmlFor="schedule-time"
+            className="mb-1.5 block text-sm font-medium text-slate-400"
+          >
             시간
           </label>
-          <TimePicker
-            value={value.time}
-            onChange={(time) => onChange({ ...value, time })}
-          />
+          <TimePicker value={value.time} onChange={(time) => onChange({ ...value, time })} />
         </div>
       </div>
       <div className="flex items-center gap-2">

@@ -16,9 +16,7 @@ export function CommandCard({ command, onSelect }: CommandCardProps) {
         {command.command}
       </code>
       <p className="mt-1 text-sm text-slate-400">{command.description}</p>
-      {command.example && (
-        <p className="mt-1 text-xs text-slate-500">{command.example}</p>
-      )}
+      {command.example && <p className="mt-1 text-xs text-slate-500">{command.example}</p>}
     </button>
   );
 }

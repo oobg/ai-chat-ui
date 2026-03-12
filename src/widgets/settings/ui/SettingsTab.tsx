@@ -26,18 +26,14 @@ export function SettingsTab() {
         <h2 className="mb-4 text-lg font-semibold text-slate-100">Settings</h2>
         <div className="space-y-6">
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-400">
-              기본 모델
-            </label>
+            <label className="mb-2 block text-sm font-medium text-slate-400">기본 모델</label>
             <ModelSelector value={model} onChange={setModel} />
           </div>
           <div>
             <TemperatureSlider value={temperature} onChange={setTemperature} />
           </div>
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-400">
-              시스템 프롬프트
-            </label>
+            <label className="mb-2 block text-sm font-medium text-slate-400">시스템 프롬프트</label>
             <SystemPromptEditor value={systemPrompt} onChange={setSystemPrompt} />
           </div>
           <div>

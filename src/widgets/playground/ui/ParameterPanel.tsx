@@ -6,9 +6,7 @@ type ParameterPanelProps = {
 export function ParameterPanel({ temperature, onTemperatureChange }: ParameterPanelProps) {
   return (
     <div className="space-y-2">
-      <label className="block text-sm font-medium text-slate-400">
-        Temperature: {temperature}
-      </label>
+      <label className="block text-sm font-medium text-slate-400">Temperature: {temperature}</label>
       <input
         type="range"
         min={0}

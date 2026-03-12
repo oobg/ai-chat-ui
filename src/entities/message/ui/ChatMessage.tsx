@@ -31,9 +31,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
     <div className="flex w-full justify-start">
       <div className="flex max-w-xl items-start gap-3">
         <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-900 ring-1 ring-slate-600/80">
-          <span className="text-xs font-semibold tracking-wide text-slate-100">
-            AI
-          </span>
+          <span className="text-xs font-semibold tracking-wide text-slate-100">AI</span>
         </div>
         <MessageState status={message.status}>
           <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-100">

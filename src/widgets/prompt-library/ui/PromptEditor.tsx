@@ -4,11 +4,7 @@ type PromptEditorProps = {
   readOnly?: boolean;
 };
 
-export function PromptEditor({
-  value,
-  onChange,
-  readOnly = false,
-}: PromptEditorProps) {
+export function PromptEditor({ value, onChange, readOnly = false }: PromptEditorProps) {
   return (
     <textarea
       value={value}

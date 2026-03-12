@@ -69,11 +69,7 @@ export function ChatTab() {
         >
           <div className="flex items-end gap-3">
             <div className="relative flex-1">
-              <ChatInput
-                value={input}
-                onChange={setInput}
-                onSubmit={handleSubmit}
-              />
+              <ChatInput value={input} onChange={setInput} onSubmit={handleSubmit} />
             </div>
             <SendButton disabled={!input.trim()} />
           </div>
