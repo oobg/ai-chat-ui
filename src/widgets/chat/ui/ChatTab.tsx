@@ -9,7 +9,32 @@ import { SlashCommandHelper } from "./SlashCommandHelper";
 
 export function ChatTab() {
   const listRef = useRef<HTMLDivElement | null>(null);
-  const { messages, input, setInput, sendMessage, markAllRead } = useChatMessages();
+  const {
+    messages,
+    input,
+    setInput,
+    sendMessage,
+    markAllRead,
+    updateMessage,
+  } = useChatMessages();
+
+  const handleScheduleCreated = useCallback(
+    (
+      messageId: string,
+      data: { title: string; date: string; time: string; memo?: string },
+    ) => {
+      updateMessage(messageId, {
+        schedulePayload: {
+          status: "created",
+          title: data.title,
+          date: data.date,
+          time: data.time,
+          memo: data.memo,
+        },
+      });
+    },
+    [updateMessage],
+  );
 
   const scrollToBottom = useCallback(() => {
     const el = listRef.current;
@@ -127,7 +152,11 @@ export function ChatTab() {
       </header>
 
       <main className="flex flex-1 flex-col overflow-hidden bg-gradient-to-b from-slate-950/40 via-slate-950/80 to-slate-950">
-        <MessageList messages={messages} listRef={listRef} />
+        <MessageList
+          messages={messages}
+          listRef={listRef}
+          onScheduleCreated={handleScheduleCreated}
+        />
 
         <form
           onSubmit={(e) => {

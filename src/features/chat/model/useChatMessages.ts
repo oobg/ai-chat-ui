@@ -18,6 +18,9 @@ export function useChatMessages() {
   const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
   const [input, setInput] = useState("");
 
+  const isScheduleCommand = (text: string) =>
+    text === "/schedule" || text.startsWith("/schedule ");
+
   const sendMessage = useCallback((trimmed: string) => {
     const userMessage: Message = {
       id: createId(),
@@ -25,6 +28,20 @@ export function useChatMessages() {
       content: trimmed,
       status: "completed_read",
     };
+
+    if (isScheduleCommand(trimmed)) {
+      const scheduleBlock: Message = {
+        id: createId(),
+        role: "assistant",
+        content: "",
+        status: "completed_read",
+        type: "schedule",
+        schedulePayload: { status: "editing" },
+      };
+      setMessages((prev) => [...prev, userMessage, scheduleBlock]);
+      setInput("");
+      return;
+    }
 
     const assistantId = createId();
     const assistantPlaceholder: Message = {
@@ -52,6 +69,12 @@ export function useChatMessages() {
     }, 900);
   }, []);
 
+  const updateMessage = useCallback((id: string, partial: Partial<Message>) => {
+    setMessages((prev) =>
+      prev.map((m) => (m.id === id ? { ...m, ...partial } : m)),
+    );
+  }, []);
+
   const markAllRead = useCallback(() => {
     setMessages((prev) =>
       prev.map((message) =>
@@ -68,5 +91,6 @@ export function useChatMessages() {
     setInput,
     sendMessage,
     markAllRead,
+    updateMessage,
   };
 }
