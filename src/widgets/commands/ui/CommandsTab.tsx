@@ -30,7 +30,7 @@ const MOCK_COMMANDS: CommandItem[] = [
   },
 ];
 
-export function CommandsTab() {
+function CommandsTab() {
   const [search, setSearch] = useState("");
 
   const filtered = useMemo(() => {
@@ -58,3 +58,5 @@ export function CommandsTab() {
     </div>
   );
 }
+
+export { MOCK_COMMANDS, CommandsTab };

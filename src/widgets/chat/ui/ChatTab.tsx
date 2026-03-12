@@ -1,5 +1,6 @@
 import { useCallback, useRef } from "react";
 import { useChatMessages } from "@/features/chat";
+import { MOCK_COMMANDS } from "@/widgets/commands";
 import { MessageList } from "./MessageList";
 import { ChatInput } from "./ChatInput";
 import { SendButton } from "./SendButton";
@@ -69,7 +70,12 @@ export function ChatTab() {
         >
           <div className="flex items-end gap-3">
             <div className="relative flex-1">
-              <ChatInput value={input} onChange={setInput} onSubmit={handleSubmit} />
+              <ChatInput
+                value={input}
+                onChange={setInput}
+                onSubmit={handleSubmit}
+                commands={MOCK_COMMANDS}
+              />
             </div>
             <SendButton disabled={!input.trim()} />
           </div>
