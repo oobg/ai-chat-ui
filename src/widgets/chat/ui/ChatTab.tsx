@@ -1,9 +1,11 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { useChatMessages } from "@/features/chat";
+import type { CommandItem } from "@/widgets/commands";
 import { MOCK_COMMANDS } from "@/widgets/commands";
 import { MessageList } from "./MessageList";
 import { ChatInput } from "./ChatInput";
 import { SendButton } from "./SendButton";
+import { SlashCommandHelper } from "./SlashCommandHelper";
 
 export function ChatTab() {
   const listRef = useRef<HTMLDivElement | null>(null);
@@ -22,6 +24,72 @@ export function ChatTab() {
     window.setTimeout(scrollToBottom, 20);
     window.setTimeout(scrollToBottom, 50);
   }, [input, sendMessage, scrollToBottom]);
+
+  const slashSegment = useMemo(() => {
+    if (!input.startsWith("/")) return "";
+    const m = input.match(/^\/[^\s\n]*/);
+    return m ? m[0] : "";
+  }, [input]);
+
+  const hasSpaceAfterSegment =
+    slashSegment.length > 0 &&
+    slashSegment.length < input.length &&
+    /[\s\n]/.test(input[slashSegment.length] ?? "");
+
+  const isExactCommand =
+    slashSegment.length > 0 &&
+    MOCK_COMMANDS.some((c) => c.command === slashSegment);
+
+  const showHelper =
+    input.startsWith("/") && !(hasSpaceAfterSegment && isExactCommand);
+
+  const suggestedCommands = useMemo(() => {
+    if (!slashSegment) return [];
+    return MOCK_COMMANDS.filter((c) => c.command.startsWith(slashSegment));
+  }, [slashSegment]);
+
+  const [highlightedIndex, setHighlightedIndex] = useState(0);
+
+  const safeHighlightedIndex =
+    suggestedCommands.length === 0
+      ? 0
+      : Math.min(highlightedIndex, suggestedCommands.length - 1);
+
+  const handleSelectCommand = useCallback(
+    (command: CommandItem) => {
+      const rest = input.slice(slashSegment.length);
+      setInput(command.command + (rest.startsWith(" ") ? rest : " " + rest));
+    },
+    [input, slashSegment, setInput],
+  );
+
+  const handleSlashKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+      if (!showHelper || suggestedCommands.length === 0) return;
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        setHighlightedIndex((prev) => (prev + 1) % suggestedCommands.length);
+        return;
+      }
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+        setHighlightedIndex(
+          (prev) => (prev - 1 + suggestedCommands.length) % suggestedCommands.length,
+        );
+        return;
+      }
+      if (event.key === "Enter" && !event.shiftKey && suggestedCommands[safeHighlightedIndex]) {
+        event.preventDefault();
+        handleSelectCommand(suggestedCommands[safeHighlightedIndex]);
+        return;
+      }
+      if (event.key === "Tab" && suggestedCommands[safeHighlightedIndex]) {
+        event.preventDefault();
+        handleSelectCommand(suggestedCommands[safeHighlightedIndex]);
+      }
+    },
+    [showHelper, suggestedCommands, safeHighlightedIndex, handleSelectCommand],
+  );
 
   return (
     <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-950/70 shadow-xl">
@@ -70,11 +138,19 @@ export function ChatTab() {
         >
           <div className="flex items-end gap-3">
             <div className="relative flex-1">
+              {showHelper && (
+                <SlashCommandHelper
+                  commands={suggestedCommands}
+                  highlightedIndex={safeHighlightedIndex}
+                  onSelect={handleSelectCommand}
+                />
+              )}
               <ChatInput
                 value={input}
                 onChange={setInput}
                 onSubmit={handleSubmit}
                 commands={MOCK_COMMANDS}
+                onKeyDown={handleSlashKeyDown}
               />
             </div>
             <SendButton disabled={!input.trim()} />

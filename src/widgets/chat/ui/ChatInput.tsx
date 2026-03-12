@@ -9,6 +9,7 @@ type ChatInputProps = {
   placeholder?: string;
   disabled?: boolean;
   commands?: CommandItem[];
+  onKeyDown?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;
 };
 
 const MIRROR_PADDING = "px-3.5 py-2.5";
@@ -21,6 +22,7 @@ export function ChatInput({
   placeholder = "무엇이든 물어보세요. 엔터로 전송, Shift+Enter로 줄바꿈.",
   disabled = false,
   commands,
+  onKeyDown: onKeyDownProp,
 }: ChatInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const mirrorRef = useRef<HTMLDivElement>(null);
@@ -92,6 +94,8 @@ export function ChatInput({
             : `block w-full resize-none rounded-2xl border-0 bg-transparent ${MIRROR_PADDING} text-sm text-slate-100 shadow-none outline-none ring-0 placeholder:text-slate-500 disabled:opacity-60`
         }
         onKeyDown={(event) => {
+          onKeyDownProp?.(event);
+          if (event.defaultPrevented) return;
           if (event.key === "Enter" && !event.shiftKey) {
             event.preventDefault();
             onSubmit();
