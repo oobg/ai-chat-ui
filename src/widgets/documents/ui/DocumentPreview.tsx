@@ -1,4 +1,4 @@
-import type { DocumentItem } from "../model/types";
+import type { DocumentItem } from "@/widgets/documents/model/types";
 
 type DocumentPreviewProps = {
   document: DocumentItem | null;

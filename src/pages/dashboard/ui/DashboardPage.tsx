@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { TabId } from "../../../shared/types/tabs";
+import type { TabId } from "@/shared/types/tabs";
 import { Sidebar } from "./Sidebar";
 import { MainPanel } from "./MainPanel";
 

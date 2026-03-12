@@ -1,5 +1,5 @@
-import type { TabId } from "../../../shared/types/tabs";
-import { TABS } from "../../../shared/types/tabs";
+import type { TabId } from "@/shared/types/tabs";
+import { TABS } from "@/shared/types/tabs";
 import { getTabIcon } from "./TabIcons";
 
 type SidebarProps = {

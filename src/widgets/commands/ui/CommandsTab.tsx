@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import type { CommandItem } from "../model/types";
+import type { CommandItem } from "@/widgets/commands/model/types";
 import { CommandList } from "./CommandList";
 import { CommandSearch } from "./CommandSearch";
 

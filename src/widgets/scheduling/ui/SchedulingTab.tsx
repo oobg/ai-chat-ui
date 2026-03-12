@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ScheduleFormState } from "../model/types";
+import type { ScheduleFormState } from "@/widgets/scheduling/model/types";
 import { ScheduleForm } from "./ScheduleForm";
 import { ScheduleSummary } from "./ScheduleSummary";
 

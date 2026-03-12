@@ -1,4 +1,4 @@
-import type { ActivityRecord } from "../model/types";
+import type { ActivityRecord } from "@/widgets/activity/model/types";
 import { ActivityItem } from "./ActivityItem";
 
 type ActivityListProps = {

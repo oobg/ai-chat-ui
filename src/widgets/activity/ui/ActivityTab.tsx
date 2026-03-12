@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import type { ActivityRecord, ActivityType } from "../model/types";
+import type { ActivityRecord, ActivityType } from "@/widgets/activity/model/types";
 import { ActivityList } from "./ActivityList";
 import { ActivityDetail } from "./ActivityDetail";
 import { ActivityFilter } from "./ActivityFilter";

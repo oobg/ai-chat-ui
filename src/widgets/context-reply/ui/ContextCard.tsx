@@ -1,4 +1,4 @@
-import type { ContextItem } from "../model/types";
+import type { ContextItem } from "@/widgets/context-reply/model/types";
 import { ContextPreview } from "./ContextPreview";
 
 type ContextCardProps = {

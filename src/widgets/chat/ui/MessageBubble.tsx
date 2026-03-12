@@ -1,5 +1,5 @@
-import type { Message } from "../../../entities/message/model/types";
-import { ChatMessage } from "../../../entities/message/ui/ChatMessage";
+import type { Message } from "@/entities/message/model/types";
+import { ChatMessage } from "@/entities/message/ui/ChatMessage";
 
 type MessageBubbleProps = {
   message: Message;

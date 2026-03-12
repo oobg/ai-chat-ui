@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { DocumentItem } from "../model/types";
+import type { DocumentItem } from "@/widgets/documents/model/types";
 import { DocumentUpload } from "./DocumentUpload";
 import { DocumentList } from "./DocumentList";
 import { DocumentPreview } from "./DocumentPreview";

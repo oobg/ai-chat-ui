@@ -1,4 +1,4 @@
-import type { Message } from "../model/types";
+import type { Message } from "@/entities/message/model/types";
 import { MessageState } from "./MessageState";
 
 type ChatMessageProps = {

@@ -1,4 +1,4 @@
-import type { WorkflowItem } from "../model/types";
+import type { WorkflowItem } from "@/widgets/workflow/model/types";
 
 type WorkflowCardProps = {
   workflow: WorkflowItem;

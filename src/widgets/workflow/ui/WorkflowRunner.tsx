@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { WorkflowItem } from "../model/types";
+import type { WorkflowItem } from "@/widgets/workflow/model/types";
 
 type WorkflowRunnerProps = {
   workflow: WorkflowItem | null;
