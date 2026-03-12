@@ -1,7 +1,7 @@
-import { ChatPage } from "../pages/chat/ui/ChatPage";
+import { DashboardPage } from "../pages/dashboard/ui/DashboardPage";
 
 function App() {
-  return <ChatPage />;
+  return <DashboardPage />;
 }
 
 export default App;
