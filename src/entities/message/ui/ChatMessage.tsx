@@ -4,6 +4,9 @@ import { MessageState } from "./MessageState";
 const SLASH_COMMAND_REGEX = /^(\/[^\s\n]*)([\s\S]*)$/;
 const SLASH_COMMAND_GLOBAL_REGEX = /(\/[^\s\n"]+)/g;
 
+/** 등록된 슬래시 커맨드와 일치할 때만 코드 스타일 적용 */
+const VALID_SLASH_COMMANDS = new Set(["/summarize", "/translate", "/explain", "/schedule"]);
+
 function parseUserContent(content: string): { command: string; rest: string } | null {
   const trimmed = content.trimStart();
   const match = trimmed.match(SLASH_COMMAND_REGEX);
@@ -14,7 +17,7 @@ function parseUserContent(content: string): { command: string; rest: string } | 
 function parseContentWithSlashCommands(content: string): Array<{ type: "code"; value: string } | { type: "text"; value: string }> {
   const parts = content.split(SLASH_COMMAND_GLOBAL_REGEX);
   return parts.map((part) =>
-    /^\/[^\s\n"]+$/.test(part)
+    /^\/[^\s\n"]+$/.test(part) && VALID_SLASH_COMMANDS.has(part)
       ? { type: "code" as const, value: part }
       : { type: "text" as const, value: part },
   );
@@ -32,13 +35,13 @@ export function ChatMessage({ message }: ChatMessageProps) {
 
   if (isUser) {
     const parsed = parseUserContent(message.content);
-    const hasSlashCommand = parsed && parsed.command.length > 1;
+    const hasValidSlashCommand = parsed && VALID_SLASH_COMMANDS.has(parsed.command);
 
     return (
       <div className="flex w-full justify-end">
         <div className="flex max-w-xl items-end gap-2">
           <div className="rounded-2xl bg-sky-500/20 px-4 py-2.5 text-sm text-slate-200 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.25)] ring-1 ring-sky-400/30">
-            {hasSlashCommand ? (
+            {hasValidSlashCommand ? (
               <span className="flex flex-wrap items-baseline gap-1.5">
                 <code className={codeBlockClassName}>
                   {parsed.command}
