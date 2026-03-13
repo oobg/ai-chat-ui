@@ -18,10 +18,23 @@ export function useChatMessages() {
   const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
   const [input, setInput] = useState("");
 
+  const markAllAssistantUnreadRead = useCallback(() => {
+    setMessages((prev) =>
+      prev.map((message) =>
+        message.role === "assistant" && message.status === "completed_unread"
+          ? { ...message, status: "completed_read" }
+          : message,
+      ),
+    );
+  }, []);
+
   const isScheduleCommand = (text: string) =>
     text === "/schedule" || text.startsWith("/schedule ");
 
   const sendMessage = useCallback((trimmed: string) => {
+    // 새 메시지를 전송할 때 이전 AI 응답의 "새 응답" 배지는 모두 읽음으로 처리
+    markAllAssistantUnreadRead();
+
     const userMessage: Message = {
       id: createId(),
       role: "user",
@@ -67,7 +80,7 @@ export function useChatMessages() {
         ),
       );
     }, 900);
-  }, []);
+  }, [markAllAssistantUnreadRead]);
 
   const updateMessage = useCallback((id: string, partial: Partial<Message>) => {
     setMessages((prev) =>
@@ -76,14 +89,8 @@ export function useChatMessages() {
   }, []);
 
   const markAllRead = useCallback(() => {
-    setMessages((prev) =>
-      prev.map((message) =>
-        message.role === "assistant" && message.status === "completed_unread"
-          ? { ...message, status: "completed_read" }
-          : message,
-      ),
-    );
-  }, []);
+    markAllAssistantUnreadRead();
+  }, [markAllAssistantUnreadRead]);
 
   return {
     messages,
